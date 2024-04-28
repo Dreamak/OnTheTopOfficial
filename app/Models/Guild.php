@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Guild extends Model
 {
 
-    protected $fillable = ['name', 'power'];
+    protected $fillable = ['name', 'server'];
 
     public function members()
     {
-        return $this->hasMany(Member::class, 'guilds_id', 'id_guilds');
+        return $this->hasMany(Member::class, 'guilds_id', 'id');
     }
 
     public function store(Request $request)
