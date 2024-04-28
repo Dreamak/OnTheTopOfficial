@@ -23,13 +23,20 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
     // Autres routes administratives...
 });
 
+Route::get('/onthetop', [OnTheTopController::class, 'index'])->name('onthetop.dashboard');
 
 Route::middleware(['auth', 'role:OnTheTop'])->group(function () {
-    Route::get('/onthetop', [OnTheTopController::class, 'index'])->name('onthetop.page');
+
+
+
+
+
 });

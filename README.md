@@ -56,6 +56,6 @@ php artisan db:seed --class=EventsTableSeeder
 
 
 
-
+npm run dev
 
 
