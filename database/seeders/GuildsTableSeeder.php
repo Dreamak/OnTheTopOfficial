@@ -14,8 +14,8 @@ class GuildsTableSeeder extends Seeder
     public function run()
     {
         DB::table('guilds')->insert([
-            ['name' => 'OnTheTop', 'power' => 1000000],
-            ['name' => 'TheLastHope', 'power' => 1500000],
+            ['name' => 'OnTheTop', 'server' => 360004],
+            ['name' => 'TheLastHope', 'server' => 360004],
             // Ajoute plus si nécessaire...
         ]);
     }

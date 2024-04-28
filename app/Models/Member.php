@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    protected $table = 'members';
-    protected $primaryKey = 'id_members';
+
     protected $fillable = ['ingame_name', 'powers_id', 'guilds_id'];
 
     public function guild()

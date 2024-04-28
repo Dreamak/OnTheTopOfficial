@@ -11,7 +11,7 @@ class CreateGuildsTable extends Migration
         Schema::create('guilds', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('power')->unsigned();
+            $table->bigInteger('server')->unsigned();
             $table->timestamps();
         });
     }
