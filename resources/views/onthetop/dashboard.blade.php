@@ -11,11 +11,13 @@
     <div class="guilds">
         @foreach ($guilds as $guild)
             <div class="card mb-3">
-                <div class="card-header">
-                    <h2>{{ $guild->name }}</h2>
+                {{-- Cliquez sur le nom de la guilde pour afficher/cacher les membres --}}
+                <div class="card-header" onclick="toggleMembers({{ $guild->id }})">
+                    <h2 style="cursor:pointer;">{{ $guild->name }}</h2>
                     <p>Server: {{ $guild->server }}</p>
                 </div>
-                <div class="card-body">
+                {{-- La liste des membres est masquée par défaut --}}
+                <div class="card-body guild-members" id="guild-{{ $guild->id }}" style="display:none;">
                     <h3>Membres :</h3>
                     <ul>
                         @foreach ($guild->members as $member)
@@ -30,5 +32,17 @@
         @endforeach
     </div>
 </div>
+
+<script>
+// Fonction pour afficher/cacher les membres d'une guilde
+function toggleMembers(guildId) {
+    var membersList = document.getElementById('guild-' + guildId);
+    if (membersList.style.display === 'none') {
+        membersList.style.display = 'block';
+    } else {
+        membersList.style.display = 'none';
+    }
+}
+</script>
 
 @endsection
