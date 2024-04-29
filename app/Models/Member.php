@@ -17,6 +17,6 @@ class Member extends Model
 
     public function power()
     {
-        return $this->belongsTo(Power::class, 'powers_id');
+        return $this->hasOne(Power::class, 'id', 'powers_id');
     }
 }

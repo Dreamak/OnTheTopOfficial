@@ -20,13 +20,24 @@
                 <div class="card-body guild-members" id="guild-{{ $guild->id }}" style="display:none;">
                     <h3>Membres :</h3>
                     <div>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Power</th>
+                                <th scope="col">Last Update</th>
+                              </tr>
+                            </thead>
+                            <tbody>
                         @foreach ($guild->members as $member)
-                            <div class="d-flex align-items-center justify-content-between border-bottom m-3">
-                                <p class="mb-0">{{ $member->ingame_name }}</p>
-                                <p class="mb-0 text-center">Power: {{ $member->power->power ?? 'N/A' }}K</p>
-                                <small>Depuis le: {{ $member->power->date ?? 'N/A' }}</small>
-                            </div>
+                            <tr>
+                                <th scope="row">{{ $member->ingame_name }}</th>
+                                <td>Power: {{ $member->power->power ?? 'N/A' }}K</tb>
+                                <td><small>Depuis le: {{ $member->power->date ?? 'N/A' }}</small></td>
+                            </tr>
                         @endforeach
+                            </tbody>
+                        </table>
                     </div>                   
                 </div>
             </div>
