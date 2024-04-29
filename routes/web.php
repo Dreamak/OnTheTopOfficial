@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,7 @@ Route::post('/members', [MemberController::class, 'addMemberToGuild'])->name('me
 Route::post('/admin/guilds/{guild}/manage', [MemberController::class, 'addMemberToGuild'])->name('guilds.add-member');
 Route::patch('/admin/members/{member}/remove-from-guild', [MemberController::class, 'removeFromGuild'])->name('members.remove-from-guild');
 
+Route::resource('admin/users', UserController::class)->middleware('auth', 'role:admin');
 
 
 

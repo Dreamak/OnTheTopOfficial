@@ -16,7 +16,7 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'roles_id');
+        return $this->belongsTo(Role::class, 'roles_id', 'id');
     }
 
     public function hasRole($roleName)
@@ -26,7 +26,7 @@ class User extends Authenticatable
 
     public function member()
     {
-        return $this->belongsTo(Member::class, 'members_id');
+        return $this->belongsTo(Member::class, 'members_id', 'id');
     }
 
     public function passwordRecord()
