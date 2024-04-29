@@ -4,13 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
-<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use Illuminate\Notifications\Notifiable;
-=======
 use App\Http\Controllers\OnTheTopController;
->>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,14 +24,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
-
-
-Route::get('/onthetop/dashboard', 'OnTheTopController@dashboard');
-Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
-
-
 Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
@@ -52,7 +40,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
         Route::resource('admin/users', UserController::class)->middleware('auth', 'role:admin');
         Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users');
-        
+
 
         Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
         Route::get('/onthetop', [OnTheTopController::class, 'index'])->name('onthetop.dashboard');
@@ -63,8 +51,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:OnTheTop'])->group(function () {
     // Toutes tes routes pour 'OnTheTop' ici
+    Route::get('/onthetop', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
     Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
-    Route::get('/onthetop', [OnTheTopController::class, 'index'])->name('onthetop.dashboard');
+
+
+
     // ... autres routes OnTheTop
 });
 
