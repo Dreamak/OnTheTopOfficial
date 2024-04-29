@@ -16,22 +16,26 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'roles_id');
+        return $this->belongsTo(Role::class, 'roles_id', 'id');
     }
 
     public function hasRole($roleName)
     {
-        return $this->role->name === $roleName;
+        return $this->role()->where('role_name', $roleName)->exists();
     }
+
 
     public function member()
     {
-        return $this->belongsTo(Member::class, 'members_id');
+        return $this->belongsTo(Member::class, 'members_id', 'id');
     }
 
     public function passwordRecord()
     {
         return $this->belongsTo(Password::class, 'passwords_id', 'id');
     }
+
+
+
 
 }

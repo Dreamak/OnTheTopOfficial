@@ -25,6 +25,7 @@ class CheckRole
                 return $next($request);
             }
         }
+        
 
         return redirect('home')->with('error', "Vous n'avez pas accès à cette section.");
     }

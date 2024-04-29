@@ -11,6 +11,22 @@
     <div class="guilds">
         @foreach ($guilds as $guild)
             <div class="card mb-3">
+<<<<<<< HEAD
+                <div class="card-header">
+                    <h2>{{ $guild->name }}</h2>
+                    <p>Power: {{ $guild->power }}</p>
+                </div>
+                <div class="card-body">
+                    <h3>Membres :</h3>
+                    <ul>
+                        @foreach ($guild->members as $member)
+                            <li>
+                                {{ $member->ingame_name }} - Power: {{ $member->power->power ?? 'N/A' }}
+                                <small>Depuis le: {{ $member->power->date ?? 'N/A' }}</small>
+                            </li>
+                        @endforeach
+                    </ul>
+=======
                 {{-- Cliquez sur le nom de la guilde pour afficher/cacher les membres --}}
                 <div class="card-header" onclick="toggleMembers({{ $guild->id }})">
                     <h2 style="cursor:pointer;">{{ $guild->name }}</h2>
@@ -39,12 +55,15 @@
                             </tbody>
                         </table>
                     </div>                   
+>>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
                 </div>
             </div>
         @endforeach
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
 <script>
 // Fonction pour afficher/cacher les membres d'une guilde
 function toggleMembers(guildId) {
@@ -57,4 +76,5 @@ function toggleMembers(guildId) {
 }
 </script>
 
+>>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
 @endsection

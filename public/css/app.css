@@ -164,3 +164,19 @@ footer {
 .member-name, .member-power {
     margin: 0;
 }
+
+.logo-class {
+    height: auto; /* Adapt to your needs */
+    width: auto; /* Adapt to your needs, or set a specific width */
+}
+
+/* Augmenter la taille de la police pour tous les liens de la navigation */
+.navbar-nav .nav-link .nav-item{
+    font-size: 100rem; /* Choisissez la taille qui vous convient */
+    padding: 0.5rem 1rem; /* Ajoute plus de padding autour des liens */
+}
+
+/* Ajuster la hauteur de la barre de navigation */
+.navbar {
+    padding: 1% 1rem; /* Augmente le padding, ce qui augmente la hauteur totale */
+}
