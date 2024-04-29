@@ -42,8 +42,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users');
 
 
+        Route::get('/onthetop', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
         Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
-        Route::get('/onthetop', [OnTheTopController::class, 'index'])->name('onthetop.dashboard');
 });
 
 
