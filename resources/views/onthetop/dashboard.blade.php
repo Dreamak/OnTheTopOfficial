@@ -13,7 +13,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <h2>{{ $guild->name }}</h2>
-                    <p>Power: {{ $guild->power }}</p>
+                    <p>Server: {{ $guild->server }}</p>
                 </div>
                 <div class="card-body">
                     <h3>Membres :</h3>

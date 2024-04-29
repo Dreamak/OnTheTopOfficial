@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\OnTheTopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +45,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Autres routes administratives...
 });
 
-Route::get('/onthetop', [OnTheTopController::class, 'index'])->name('onthetop.dashboard');
 
+Route::get('/onthetop/dashboard', 'OnTheTopController@dashboard');
+Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
 
 
 
