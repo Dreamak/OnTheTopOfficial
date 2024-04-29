@@ -55,8 +55,6 @@ Route::middleware(['auth', 'role:OnTheTop'])->group(function () {
     Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
 
 
-
-    // ... autres routes OnTheTop
 });
 
 
