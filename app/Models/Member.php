@@ -19,4 +19,9 @@ class Member extends Model
     {
         return $this->belongsTo(Power::class, 'powers_id');
     }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'members_id');
+    }
 }

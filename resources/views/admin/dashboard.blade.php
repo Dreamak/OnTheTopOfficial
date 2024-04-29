@@ -5,8 +5,8 @@
     <h1>Dashboard Admin</h1>
 
     <!-- Gestion des guildes -->
-    <section>
-        <h2>Guildes</h2>
+    <section class="mb-4">
+        <h2 class="mb-3">Guildes</h2>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addGuildModal">
             Ajouter une Guilde
         </button>
@@ -40,19 +40,28 @@
 
         @foreach ($guilds as $guild)
             <!-- Formulaire pour une guilde spécifique -->
-            <form method="POST" action="{{ route('guild.update', $guild) }}">
-                @csrf
-                @method('PATCH')
-
-                <div>
-                    <label>Nom:</label>
-                    <input type="text" name="name" value="{{ $guild->name }}">
-                    <input type="text" name="server" value="{{ $guild->server }}">
-                    <a href="{{ route('admin.guild.manage', $guild->id) }}" class="btn btn-info">Modifier les Membres</a>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('guild.update', $guild) }}">
+                        @csrf
+                        @method('PATCH')
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <label>Nom:</label>
+                                <input type="text" class="form-control" name="name" value="{{ $guild->name }}">
+                            </div>
+                            <div class="col">
+                                <label>Server:</label>
+                                <input type="text" class="form-control" name="server" value="{{ $guild->server }}">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                <a href="{{ route('admin.guild.manage', $guild->id) }}" class="btn btn-info">Modifier les Membres</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- Autres champs... -->
-                <button type="submit">Mettre à jour</button>
-            </form>
+            </div>
         @endforeach
     </section>
 
@@ -98,18 +107,27 @@
             </div>
         </div>
         @foreach ($members as $member)
-        <form method="POST" action="{{ route('member.update', $member) }}">
-            @csrf
-            @method('PATCH')
-
-                <div>
-                    <label>Nom:</label>
-                    <input type="text" name="ingame_name" value="{{ $member->ingame_name }}">
-                    <input type="text" name="power" value="{{ $member->power->power }}">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('member.update', $member) }}">
+                        @csrf
+                        @method('PATCH')
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <label>Nom:</label>
+                                <input type="text" class="form-control" name="ingame_name" value="{{ $member->ingame_name }}">
+                            </div>
+                            <div class="col">
+                                <label>Power:</label>
+                                <input type="number" class="form-control" name="power" value="{{ $member->power->power }}">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- Autres champs... -->
-                <button type="submit">Mettre à jour</button>
-            </form>
+            </div>
         @endforeach
     </section>
 </div>

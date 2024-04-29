@@ -21,8 +21,9 @@ class User extends Authenticatable
 
     public function hasRole($roleName)
     {
-        return $this->role->name === $roleName;
+        return $this->role()->where('role_name', $roleName)->exists();
     }
+
 
     public function member()
     {
@@ -33,5 +34,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Password::class, 'passwords_id', 'id');
     }
+
+
+
 
 }
