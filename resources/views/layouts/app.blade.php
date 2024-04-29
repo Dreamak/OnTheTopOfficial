@@ -37,7 +37,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
                             </li>
-                            @elseif(auth()->user()->hasRole('OnTheTop'))
+                            @elseif(auth()->user()->hasRole('onthetop'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
                             </li>
