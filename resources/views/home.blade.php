@@ -70,15 +70,21 @@
                                 <p><strong>Puissance totale :</strong> {{ $guild->power }}</p>
                                 <p><strong>Membres :</strong> {{ $guild->members->count() }}</p>
                                 <h4>Top 5 des membres par Power</h3>
-                                <table>
+                                <table class="table">
                                     <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Power</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                <ul>
                                     @foreach ($topMembers as $member)
-                                        <li>{{ $member->ingame_name }} - Power: {{ $member->power }}</li>
+                                        <tr>
+                                            <th scope="row">{{ $member->ingame_name }}</th>
+                                            <td>{{ $member->power }}</td>
+                                        </tr>
                                     @endforeach
-                                </ul>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
