@@ -19,14 +19,15 @@
                 {{-- La liste des membres est masquée par défaut --}}
                 <div class="card-body guild-members" id="guild-{{ $guild->id }}" style="display:none;">
                     <h3>Membres :</h3>
-                    <ul>
+                    <div>
                         @foreach ($guild->members as $member)
-                            <li>
-                                {{ $member->ingame_name }} - Power: {{ $member->power->power ?? 'N/A' }}
+                            <div class="d-flex align-items-center justify-content-between border-bottom m-3">
+                                <p class="mb-0">{{ $member->ingame_name }}</p>
+                                <p class="mb-0 text-center">Power: {{ $member->power->power ?? 'N/A' }}K</p>
                                 <small>Depuis le: {{ $member->power->date ?? 'N/A' }}</small>
-                            </li>
+                            </div>
                         @endforeach
-                    </ul>
+                    </div>                   
                 </div>
             </div>
         @endforeach
