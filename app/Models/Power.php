@@ -11,8 +11,8 @@ class Power extends Model
 
     protected $fillable = ['power', 'date'];
 
-    public function members()
+    public function member()
     {
-        return $this->belongsTo(Power::class, 'powers_id');
+        return $this->belongsTo(Member::class, 'powers_id');
     }
 }

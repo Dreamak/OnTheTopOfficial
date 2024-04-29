@@ -11,6 +11,7 @@
     <div class="guilds">
         @foreach ($guilds as $guild)
             <div class="card mb-3">
+<<<<<<< HEAD
                 <div class="card-header">
                     <h2>{{ $guild->name }}</h2>
                     <p>Power: {{ $guild->power }}</p>
@@ -25,10 +26,55 @@
                             </li>
                         @endforeach
                     </ul>
+=======
+                {{-- Cliquez sur le nom de la guilde pour afficher/cacher les membres --}}
+                <div class="card-header" onclick="toggleMembers({{ $guild->id }})">
+                    <h2 style="cursor:pointer;">{{ $guild->name }}</h2>
+                    <p>Server: {{ $guild->server }}</p>
+                </div>
+                {{-- La liste des membres est masquée par défaut --}}
+                <div class="card-body guild-members" id="guild-{{ $guild->id }}" style="display:none;">
+                    <h3>Membres :</h3>
+                    <div>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Power</th>
+                                <th scope="col">Last Update</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                        @foreach ($guild->members as $member)
+                            <tr>
+                                <th scope="row">{{ $member->ingame_name }}</th>
+                                <td>Power: {{ $member->power->power ?? 'N/A' }}K</tb>
+                                <td><small>Depuis le: {{ $member->power->date ?? 'N/A' }}</small></td>
+                            </tr>
+                        @endforeach
+                            </tbody>
+                        </table>
+                    </div>                   
+>>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
                 </div>
             </div>
         @endforeach
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
+<script>
+// Fonction pour afficher/cacher les membres d'une guilde
+function toggleMembers(guildId) {
+    var membersList = document.getElementById('guild-' + guildId);
+    if (membersList.style.display === 'none') {
+        membersList.style.display = 'block';
+    } else {
+        membersList.style.display = 'none';
+    }
+}
+</script>
+
+>>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
 @endsection

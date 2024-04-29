@@ -4,8 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
+<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use Illuminate\Notifications\Notifiable;
+=======
+use App\Http\Controllers\OnTheTopController;
+>>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/onthetop', [OnTheTopController::class, 'index'])->name('onthetop.dashboard');
 
+Route::get('/onthetop/dashboard', 'OnTheTopController@dashboard');
+Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
 
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
