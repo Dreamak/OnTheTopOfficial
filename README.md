@@ -12,6 +12,7 @@ php artisan make:model Result_1 -m
 php artisan make:model Result_2 -m
 php artisan make:model Result_3 -m
 php artisan make:model Role -m
+php artisan make:model Gdc_placement -m
 
 Seeder
 php artisan make:seeder RolesTableSeeder
@@ -25,7 +26,7 @@ php artisan make:seeder Result1TableSeeder
 php artisan make:seeder Result2TableSeeder
 php artisan make:seeder Result3TableSeeder
 php artisan make:seeder EventsTableSeeder
-
+php artisan make:seeder Gdc_placementSeeder
 
 php artisan db:seed --class=RolesTableSeeder
 php artisan db:seed --class=UsersTableSeeder
@@ -54,7 +55,7 @@ php artisan db:seed --class=Result2TableSeeder
 php artisan db:seed --class=Result3TableSeeder
 php artisan db:seed --class=EventsTableSeeder
 
-
+php artisan make:controller UserController
 
 npm run dev
 

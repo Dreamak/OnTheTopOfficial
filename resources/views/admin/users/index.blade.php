@@ -18,10 +18,13 @@ $members = \App\Models\Member::all();
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="createUserModalLabel">Créer un nouvel utilisateur</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <form action="{{ route('users.store') }}" method="POST">
                 <div class="modal-body">
-                    <form action="{{ route('users.store') }}" method="POST">
+
                         @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>

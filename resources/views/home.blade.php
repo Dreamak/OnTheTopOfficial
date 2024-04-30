@@ -47,7 +47,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>    
+            </div>
             <div class="col-6">
                 <div class="row">
                     <div class="col-12 pb-5">
@@ -59,7 +59,7 @@
                                 <p>Nous sommes OnTheTop une petite guilde qui vise le Sommet. Mais quelle sommet vous devez vous demandez bah le Sommet au dessus du sommet. Mais le plus important est d'arriver là-bas avec nos camarades Champignons.</p>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                     <div class="col-12">
                         <div class="card border-0 shadow">
                             <div class="card-header text-center">
@@ -70,15 +70,21 @@
                                 <p><strong>Puissance totale :</strong> {{ $guild->power }}</p>
                                 <p><strong>Membres :</strong> {{ $guild->members->count() }}</p>
                                 <h4>Top 5 des membres par Power</h3>
-                                <table>
+                                <table class="table">
                                     <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Power</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                <ul>
                                     @foreach ($topMembers as $member)
-                                        <li>{{ $member->ingame_name }} - Power: {{ $member->power }}</li>
+                                        <tr>
+                                            <th scope="row">{{ $member->ingame_name }}</th>
+                                            <td>{{ $member->power }}</td>
+                                        </tr>
                                     @endforeach
-                                </ul>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -103,7 +109,7 @@
                     </div>
                 </div>
             </div>
-        </div>            
+        </div>
     </div>
 </div>
 @endsection

@@ -38,27 +38,22 @@
                         @endforeach
                             </tbody>
                         </table>
-                    </div>                   
->>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
+                    </div>
                 </div>
             </div>
         @endforeach
     </div>
 </div>
 
-<<<<<<< HEAD
-=======
 <script>
-// Fonction pour afficher/cacher les membres d'une guilde
-function toggleMembers(guildId) {
-    var membersList = document.getElementById('guild-' + guildId);
-    if (membersList.style.display === 'none') {
-        membersList.style.display = 'block';
-    } else {
-        membersList.style.display = 'none';
+    // Fonction pour afficher/cacher les membres d'une guilde
+    function toggleMembers(guildId) {
+        var membersList = document.getElementById('guild-' + guildId);
+        if (membersList.style.display === 'none') {
+            membersList.style.display = 'block';
+        } else {
+            membersList.style.display = 'none';
+        }
     }
-}
-</script>
-
->>>>>>> 840faa42a7ce8b45e3b49b48ee0e221d86506787
+    </script>
 @endsection

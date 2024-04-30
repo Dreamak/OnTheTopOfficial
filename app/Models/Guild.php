@@ -29,4 +29,11 @@ class Guild extends Model
 
         return redirect()->route('guilds.index')->with('success', 'Guilde créée avec succès !');
     }
+
+    public function wars()
+    {
+        return $this->hasMany(Guildwar::class, 'enemy_id_1') // Supposons que 'enemy_id_1' représente une guilde
+                    ->orWhere('enemy_id_2', $this->id)
+                    ->orWhere('enemy_id_3', $this->id);
+    }
 }

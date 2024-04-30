@@ -7,6 +7,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\UserController;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Controllers\OnTheTopController;
+use App\Http\Controllers\GuildWarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +23,19 @@ use App\Http\Controllers\OnTheTopController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 
+Route::middleware(['auth'])->group(function () {
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+
+Route::middleware(['checkrole:admin,OnTheTop'])->group(function () {
+
+        Route::get('/onthetop', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
+        Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
+        Route::get('/guildwars', [GuildWarController::class, 'showCurrentWar'])->name('guildwars.current');
+
+
+    Route::middleware(['role:admin'])->group(function () {
         Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
         Route::patch('/admin/guilds/{guild}', [AdminController::class, 'updateGuild'])->name('guild.update');
@@ -41,16 +52,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::resource('admin/users', UserController::class)->middleware('auth', 'role:admin');
         Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users');
 
+        Route::get('/admin/guildwars', [GuildWarController::class, 'index'])->name('admin.guildwars.index');
+        Route::get('/admin/guildwars/create', [GuildWarController::class, 'create'])->name('admin.guildwars.create');
+        Route::post('/admin/guildwars', [GuildWarController::class, 'store'])->name('admin.guildwars.store');
+        Route::get('/admin/guildwars/{id}/edit', [GuildWarController::class, 'edit'])->name('admin.guildwars.edit');
+        Route::post('/admin/guildwars/{id}', [GuildWarController::class, 'update'])->name('admin.guildwars.update');
+        
+
+        });
+    });
+
 });
-
-
-
-
-Route::middleware(['auth', 'role:OnTheTop'])->group(function () {
-    // Toutes tes routes pour 'OnTheTop' ici
-    Route::get('/onthetop', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
-    Route::get('/onthetop/dashboard', [OnTheTopController::class, 'dashboard'])->name('onthetop.dashboard');
-
-
-});
-
