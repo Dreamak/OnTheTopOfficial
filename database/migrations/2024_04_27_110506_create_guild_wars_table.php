@@ -11,14 +11,16 @@ class CreateGuildWarsTable extends Migration
         Schema::create('guild_wars', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->bigInteger('result')->unsigned();
+            $table->bigInteger('result')->nullable();
             $table->string('image')->nullable();
+            $table->bigInteger('onthetop')->unsigned()
             $table->bigInteger('enemy_id_1')->unsigned()->nullable();
             $table->bigInteger('enemy_id_2')->unsigned()->nullable();
             $table->bigInteger('enemy_id_3')->unsigned()->nullable();
             $table->timestamps();
 
             // Assuming enemy_id columns refer to guilds table.
+            $table->foreign('onthetop')->references('id')->on('guilds');
             $table->foreign('enemy_id_1')->references('id')->on('guilds');
             $table->foreign('enemy_id_2')->references('id')->on('guilds');
             $table->foreign('enemy_id_3')->references('id')->on('guilds');
