@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Dashboard Admin</h1>
+    <hr>
 
     <!-- Gestion des guildes -->
     <section class="mb-4">

@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    min-height: 100vh; /* Utilisez la hauteur de la vue pour pousser le footer en bas */
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto; /* Pousse le footer en bas si le contenu est moins que la hauteur de la fenêtre */
+}

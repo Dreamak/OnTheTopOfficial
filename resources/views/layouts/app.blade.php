@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Guilde de Legend of Mushroom</title>
+    <title>OnTheTop</title>
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -12,6 +12,21 @@
     <link href="{{ asset('js/bootstrap.bundle.js') }}" rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            min-height: 100vh; /* Utilisez la hauteur de la vue pour pousser le footer en bas */
+            display: flex;
+            flex-direction: column;
+        }
+        footer {
+            margin-top: auto; /* Pousse le footer en bas si le contenu est moins que la hauteur de la fenêtre */
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -29,13 +44,13 @@
                         @auth
                             @if(auth()->user()->hasRole('admin'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Gerer Guildes/Members</a>
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Manage Guilds/Members</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.users') }}">Gerer Users</a>
+                                <a class="nav-link" href="{{ route('admin.users') }}">Manage Users</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds Info</a>
                             </li>
                             @elseif(auth()->user()->hasRole('onthetop'))
                             <li class="nav-item">
@@ -77,6 +92,21 @@
             @yield('content')
         </main>
     </div>
-
+        <section class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 p-4 border-top bg-dark" data-bs-theme="dark">
+          <p class="col-md-4 mb-0 text-body-secondary">© 2024 Dreamak_ Corp.</p>
+      
+          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="{{ asset('images/Logo_ott.png') }}" alt="Logo de OnTheTop" style="height: 50px;">
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="{{ url('/') }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="https://discord.gg/2qHe5KxqHF" class="nav-link px-2 text-body-secondary">Discord</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Support</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+          </ul>
+        </section>
 </body>
 </html>
+
+
