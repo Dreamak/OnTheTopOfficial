@@ -57,7 +57,7 @@ Route::middleware(['checkrole:admin,OnTheTop'])->group(function () {
         Route::post('/admin/guildwars', [GuildWarController::class, 'store'])->name('admin.guildwars.store');
         Route::get('/admin/guildwars/{id}/edit', [GuildWarController::class, 'edit'])->name('admin.guildwars.edit');
         Route::post('/admin/guildwars/{id}', [GuildWarController::class, 'update'])->name('admin.guildwars.update');
-        
+
 
         });
     });

@@ -38,7 +38,11 @@
                         @endforeach
                             </tbody>
                         </table>
+<<<<<<< HEAD
                     </div>
+=======
+                    </div>                   
+>>>>>>> 7163dd0d283241b1ab8351ab91b856cde7d5c410
                 </div>
             </div>
         @endforeach
