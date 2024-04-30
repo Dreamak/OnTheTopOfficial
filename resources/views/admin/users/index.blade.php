@@ -9,8 +9,7 @@ $members = \App\Models\Member::all();
 @section('content')
 <div class="container">
     <h1>Gestion des Utilisateurs</h1>
-    <hr>
-    <button type="button" class="btn btn-primary mb-5 mt-3" data-bs-toggle="modal" data-bs-target="#createUserModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createUserModal">
         Ajouter un Utilisateur
     </button>
 
@@ -51,9 +50,7 @@ $members = \App\Models\Member::all();
         </div>
     </div>
 
-    <div class="card border-0 shadow">
-        <h2 class="card-header text-center">Tout les utilisateurs</h2>
-        <div>
+
     <table class="table">
         <thead>
             <tr>
@@ -72,7 +69,7 @@ $members = \App\Models\Member::all();
                 <td>{{ $user->role->role_name }}</td>
                 <td>{{ $user->member ? $user->member->ingame_name : 'Aucun' }}</td>
                 <td>
-                    <button type="button" class="btn btn-info mb-2" data-bs-toggle="modal" data-bs-target="#editUserModal-{{ $user->id }}">
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editUserModal-{{ $user->id }}">
                         Modifier
                     </button>
 
@@ -130,9 +127,7 @@ $members = \App\Models\Member::all();
                 </div>
             </div>
             @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
+        </tbody>
+    </table>
 </div>
 @endsection
