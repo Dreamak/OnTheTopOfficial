@@ -1,7 +1,0 @@
-html, body {
-    height: 100%; /* Utilisez 100vh pour la hauteur complète de la fenêtre du navigateur */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}

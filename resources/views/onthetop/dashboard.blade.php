@@ -4,7 +4,7 @@
 {{-- Section content --}}
 @section('content')
 
-<div class="container">
+<main class="container">
     <h1>Dashboard OnTheTop</h1>
     <hr>
     {{-- Liste des guildes --}}
@@ -43,7 +43,7 @@
             </div>
         @endforeach
     </div>
-</div>
+</main>
 
 <script>
     // Fonction pour afficher/cacher les membres d'une guilde

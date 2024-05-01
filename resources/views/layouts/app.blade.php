@@ -13,7 +13,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
             <div class="container">
@@ -38,14 +38,14 @@
                                 <a class="nav-link" href="{{ route('admin.guildwars.index') }}">Manage GDC</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds / Members</a>
+                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Dashboard OnTheTop</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('guildwars.current') }}">Guild War</a>
                             </li>
                             @elseif(auth()->user()->hasRole('onthetop'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds / Members</a>
+                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Dashboard OnTheTop</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('guildwars.current') }}">Guild War</a>
@@ -86,7 +86,7 @@
             @yield('content')
         </main>
     </div>
-    <section class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-dark p-5 sticky-bottom" data-bs-theme="dark">
+    <section class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-dark p-5 mb-0 mt-auto" data-bs-theme="dark">
         <p class="col-md-4 mb-0 text-body-secondary">© 2024 OnTheTop Corp.</p>
     
         <a class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
