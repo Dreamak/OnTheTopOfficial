@@ -7,8 +7,8 @@
     </header>
     <div class="container">
         <div class="row justify-content-around">
-            <div class="col-6">
-                <div class="card border-0 shadow">
+            <div class="col-12 col-md-6">
+                <div class="card border-secondary shadow">
                     <div class="card-header text-center">
                         <h2>Règlementation OnTheTop</h2>
                     </div>
@@ -48,10 +48,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-6 col-md-6">
                 <div class="row">
                     <div class="col-12 pb-5">
-                        <div class="card border-0 shadow">
+                        <div class="card border-secondary shadow">
                             <div class="card-header text-center">
                                 <h2>OnTheTop, C'est quoi</h2>
                             </div>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="card border-0 shadow">
+                        <div class="card border-secondary shadow">
                             <div class="card-header text-center">
                                 <h2>Informations de la Guilde</h2>
                             </div>
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="col-12 mt-5">
-                <div class="card">
+                <div class="card border-secondary shadow">
                     <div class="card-header">
                         <h4>Événements à venir</h4>
                     </div>

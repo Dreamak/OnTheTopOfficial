@@ -26,6 +26,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/support', [App\Http\Controllers\SupportController::class, 'index'])->name('support');
 
 
 Route::middleware(['checkrole:admin,OnTheTop'])->group(function () {

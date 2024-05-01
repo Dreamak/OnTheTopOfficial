@@ -29,33 +29,33 @@
                         @auth
                             @if(auth()->user()->hasRole('admin'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Gerer Guildes/Members</a>
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Manage Guildes/Members</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.users') }}">Gerer Users</a>
+                                <a class="nav-link" href="{{ route('admin.users') }}">Manage Users</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.guildwars.index') }}">Gerer GDC</a>
+                                <a class="nav-link" href="{{ route('admin.guildwars.index') }}">Manage GDC</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Members</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Members</a>
                             </li>
                             @elseif(auth()->user()->hasRole('onthetop'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Members</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Members</a>
                             </li>
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -86,6 +86,19 @@
             @yield('content')
         </main>
     </div>
+    <section class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-dark p-5" data-bs-theme="dark">
+        <p class="col-md-4 mb-0 text-body-secondary">© 2024 OnTheTop Corp.</p>
+    
+        <a class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="{{ asset('images/Logo_ott.png') }}" alt="Logo de OnTheTop" style="height: 50px;">
+        </a>
+    
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="https://discord.gg/V39nHjQrBW" class="nav-link px-2 text-body-secondary">Discord</a></li>
+          <li class="nav-item"><a href="{{ route('support') }}" class="nav-link px-2 text-body-secondary">Support</a></li>
+        </ul>
+    </section>
 
 </body>
 </html>
