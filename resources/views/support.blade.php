@@ -27,7 +27,7 @@
             </div>
             <div class="col-12 col-md-4 mt-5">
                 <div class="card border-secondary shadow">
-                    <img src="{{ asset('images/random_pp.jpg') }}" class="card-img-top rounded" alt="Discord profile picture of random">
+                    <img src="{{ asset('images/random_pp.png') }}" class="card-img-top rounded" alt="Discord profile picture of random">
                     <div class="card-body">
                         <h3 class="card-title">random_</h3>
                         <ul>
