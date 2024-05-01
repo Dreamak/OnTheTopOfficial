@@ -17,7 +17,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="addGuildModalLabel">New guild</h5>
+                            <h3 class="modal-title" id="addGuildModalLabel">New guild</h3>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form action="{{ route('guild.store') }}" method="POST">
@@ -43,7 +43,7 @@
 
             @foreach ($guilds as $guild)
                 <!-- Formulaire pour une guilde spécifique -->
-                <div class="card mb-2">
+                <div class="card border-secondary shadow mb-2">
                     <div class="card-header p-3 clearfix">
                         <h2 class="float-start">{{ $guild->name }}</h2>
                         <form class="float-end p-1" action="{{ route('guild.destroy', $guild->id) }}" method="POST">
@@ -118,7 +118,7 @@
                 </div>
             </div>
             @foreach ($members as $member)
-                <div class="card mb-2">
+                <div class="card border-secondary shadow mb-2">
                     <div class="card-header p-3 clearfix">
                         <h2 class="float-start">{{ $guild->name }}</h2>
                         <form class="float-end p-1" action="{{ route('member.destroy', $member) }}" method="POST">
