@@ -46,6 +46,12 @@
                             <li>Les attaques en Arène et Match de classement inter-serveurs sont autorisés.</li>
                         </ul>
                     </div>
+                    <div class="card-footer">
+                        <p>Pour toutes autres demandes, merci de vous rapprocher d'un membre du <mark>@Staff</mark>.
+                            <br>
+                            <br>
+                            Les administrateurs de la plateforme se réservent le droit de modifier ces règles à tout moment et sans préavis. Il est de la responsabilité de chaque utilisateur de se tenir informé des dernières modifications.</p>
+                    </div>
                 </div>
             </div>
             <div class="col-6 col-md-6">
@@ -53,10 +59,16 @@
                     <div class="col-12 pb-5">
                         <div class="card border-secondary shadow">
                             <div class="card-header text-center">
-                                <h2>OnTheTop, C'est quoi</h2>
+                                <h2>OnTheTop Lore</h2>
                             </div>
-                            <div class="card-body">
-                                <p>Nous sommes OnTheTop une petite guilde qui vise le Sommet. Mais quelle sommet vous devez vous demandez bah le Sommet au dessus du sommet. Mais le plus important est d'arriver là-bas avec nos camarades Champignons.</p>
+                            <div class="card-body overflow-auto" style="max-height: 350px;">
+                                <p >Fondé en 1969, le clan OnTheTop est constitué de petits champignons espiègles et intrépides, qui, bien que de taille modeste, ont toujours visé haut. Nés dans les sous-bois ombragés, ces champignons aventureux ont développé une passion insatiable pour l'exploration et la conquête des hauteurs.
+                                    <br>
+                                    <br>
+                                    Au fil des décennies, leur légende a grandi aussi rapidement que leur audace. Des gratte-ciels des grandes métropoles aux arbres séculaires des forêts anciennes, les membres du clan OnTheTop ont gravi chaque sommet avec une détermination féroce. Ils ont exploré des lieux oubliés et des terrains inconnus, transformant chaque expédition en une fête de la persévérance et de l’entraide.
+                                    <br>
+                                    <br>
+                                    Leurs exploits ne sont pas seulement des aventures, ils sont des récits de fraternité et de découverte mutuelle, unissant le clan autour du principe que même le plus petit parmi eux peut atteindre des hauteurs vertigineuses. En 2023, OnTheTop continue de repousser les limites, toujours en quête du prochain grand sommet à conquérir, guidés par la lumière de l'étoile du nord et la solidarité qui lie chaque membre du clan.</p>
                             </div>
                         </div>
                     </div>
