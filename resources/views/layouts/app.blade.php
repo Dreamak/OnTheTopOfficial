@@ -35,11 +35,20 @@
                                 <a class="nav-link" href="{{ route('admin.users') }}">Gerer Users</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.guildwars.index') }}">Gerer GDC</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Membres</a>
                             </li>
                             @elseif(auth()->user()->hasRole('onthetop'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Membres</a>
                             </li>
                             @endif
                             <li class="nav-item dropdown">
