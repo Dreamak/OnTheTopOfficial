@@ -29,33 +29,33 @@
                         @auth
                             @if(auth()->user()->hasRole('admin'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Gerer Guildes/Members</a>
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Manage Guildes/Members</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.users') }}">Gerer Users</a>
+                                <a class="nav-link" href="{{ route('admin.users') }}">Manage Users</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.guildwars.index') }}">Gerer GDC</a>
+                                <a class="nav-link" href="{{ route('admin.guildwars.index') }}">Manage GDC</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Members</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Members</a>
                             </li>
                             @elseif(auth()->user()->hasRole('onthetop'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('onthetop.dashboard') }}">Guilds/Members</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Membres</a>
+                                <a class="nav-link" href="{{ route('guildwars.current') }}">Guilds/Members</a>
                             </li>
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
