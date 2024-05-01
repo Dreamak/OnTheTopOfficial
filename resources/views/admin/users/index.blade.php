@@ -8,7 +8,7 @@ $members = \App\Models\Member::all();
 
 @section('content')
 <div class="container">
-    <h1>Dashboard User</h1>
+    <h2>User</h2>
     <hr>
     <button type="button" class="btn btn-primary mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#createUserModal">
         Add an user
@@ -58,7 +58,7 @@ $members = \App\Models\Member::all();
 
     <div class="container">
         <div class="row justify-content-around">
-            <div class="card border-secondary shadow">
+            <div class="card border-secondary shadow p-4">
                 <table class="table">
                         <thead>
                             <tr>

@@ -29,7 +29,7 @@
                         @auth
                             @if(auth()->user()->hasRole('admin'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Manage Guildes / Members</a>
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.users') }}">Manage Users</a>
