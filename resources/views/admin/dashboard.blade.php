@@ -3,11 +3,12 @@
 @section('content')
 <div class="container">
     <h1>Dashboard Admin</h1>
+    <hr>
 
     <!-- Gestion des guildes -->
     <section class="mb-4">
         <h2 class="mb-3">Guildes</h2>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addGuildModal">
+        <button type="button" class="btn btn-primary mt-2 mb-4" data-bs-toggle="modal" data-bs-target="#addGuildModal">
             Ajouter une Guilde
         </button>
         <div class="modal fade" id="addGuildModal" tabindex="-1" aria-labelledby="addGuildModalLabel" aria-hidden="true">
@@ -68,7 +69,7 @@
     <!-- Gestion des membres -->
     <section>
         <h2>Membres</h2>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMemberModal">
+        <button type="button" class="btn btn-primary mt-2 mb-4" data-bs-toggle="modal" data-bs-target="#addMemberModal">
             Ajouter un Membre
         </button>
         <div class="modal fade" id="addMemberModal" tabindex="-1" aria-labelledby="addMemberModalLabel" aria-hidden="true">
