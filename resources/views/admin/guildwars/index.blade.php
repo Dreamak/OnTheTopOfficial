@@ -91,23 +91,25 @@
                 <td>{{ $war->result }}</td>
                 <td>
                     <!-- Bouton pour ouvrir le modal de modification -->
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editGuildWarModal-{{ $war->id }}">
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editGuildWarModal-{{ $war->id }}">
                         Modifier
                     </button>
 
+
                     <!-- Modal de modification -->
-                    <div class="modal fade" id="editGuildWarModal-{{ $war->id }}" tabindex="-1" role="dialog" aria-labelledby="editGuildWarModalLabel-{{ $war->id }}" aria-hidden="true">
+                    <div class="modal fade" id="editGuildWarModal-{{ $war->id }}" tabindex="-1" aria-labelledby="editGuildWarModalLabel-{{ $war->id }}" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="editGuildWarModalLabel-{{ $war->id }}">Modifier la guerre de guilde</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="{{ route('admin.guildwars.update', $war->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('admin.guildwars.update', $war->id) }}" method="POST">
                                     @csrf
-                                    @method('PUT')
+                                    @method('POST')
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="date-{{ $war->id }}">Date</label>
@@ -161,35 +163,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">Image de la guerre</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img src="" id="modalImage" class="img-fluid">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const images = document.querySelectorAll('.table img.img-thumbnail');
-        images.forEach(image => {
-            image.addEventListener('click', function () {
-                const imageSrc = this.getAttribute('src');
-                const modalImage = document.getElementById('modalImage');
-                modalImage.src = imageSrc;
-                $('#imageModal').modal('show');
-            });
-        });
-    });
-</script>
+</div>
+</div>
 @endsection

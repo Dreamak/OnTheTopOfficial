@@ -13,7 +13,7 @@ class CreateGuildWarsTable extends Migration
             $table->date('date');
             $table->bigInteger('result')->nullable();
             $table->string('image')->nullable();
-            $table->bigInteger('onthetop')->unsigned()
+            $table->bigInteger('onthetop')->unsigned();
             $table->bigInteger('enemy_id_1')->unsigned()->nullable();
             $table->bigInteger('enemy_id_2')->unsigned()->nullable();
             $table->bigInteger('enemy_id_3')->unsigned()->nullable();
