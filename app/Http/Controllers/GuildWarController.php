@@ -46,8 +46,13 @@ class GuildWarController extends Controller
 
         // Gestion de l'image si elle existe
         if ($request->hasFile('image')) {
-            $war->image = $request->file('image')->store('guild_wars', 'public');
+            // Créer un nom de fichier unique
+            $filename = uniqid() . '.' . $request->file('image')->extension();
+
+            // Spécifier un sous-dossier et utiliser le nom de fichier personnalisé
+            $war->image = $request->file('image')->storeAs('pubic/images/guild_wars', $filename, 'public');
         }
+
 
         // Sauvegarde de l'objet Guild_War
         $war->save();
@@ -74,14 +79,13 @@ class GuildWarController extends Controller
         ]);
 
         $war = Guildwar::findOrFail($id);
-        $war->date = $validatedData->date;
+        $war->date = $validatedData['date']; // Utilisez les crochets pour accéder aux données
         $war->onthetop = 1;
-        $war->enemy_id_1 = $request->enemy1;
-        $war->enemy_id_2 = $request->enemy2;
-        $war->enemy_id_3 = $request->enemy3;
+        $war->enemy_id_1 = $validatedData['enemy1']; // Corrigez ici aussi
+        $war->enemy_id_2 = $validatedData['enemy2']; // Corrigez ici aussi
+        $war->enemy_id_3 = $validatedData['enemy3']; // Corrigez ici aussi
 
         if ($request->hasFile('image')) {
-
             if ($war->image) {
                 Storage::delete($war->image);
             }
@@ -91,7 +95,9 @@ class GuildWarController extends Controller
         $war->save();
 
         // Mise à jour des guildes participants
-        $war->guilds()->sync($request->guilds);
+        if ($request->has('guilds')) {
+            $war->guilds()->sync($request->input('guilds'));
+        }
 
         return redirect()->route('admin.guildwars.index')->with('success', 'La guerre a été mise à jour avec succès.');
     }

@@ -20,10 +20,10 @@ class CreateGuildWarsTable extends Migration
             $table->timestamps();
 
             // Assuming enemy_id columns refer to guilds table.
-            $table->foreign('onthetop')->references('id')->on('guilds');
-            $table->foreign('enemy_id_1')->references('id')->on('guilds');
-            $table->foreign('enemy_id_2')->references('id')->on('guilds');
-            $table->foreign('enemy_id_3')->references('id')->on('guilds');
+            $table->foreign('onthetop')->references('id')->on('guilds')->onDelete('cascade');
+            $table->foreign('enemy_id_1')->references('id')->on('guilds')->onDelete('cascade');
+            $table->foreign('enemy_id_2')->references('id')->on('guilds')->onDelete('cascade');
+            $table->foreign('enemy_id_3')->references('id')->on('guilds')->onDelete('cascade');
         });
     }
 

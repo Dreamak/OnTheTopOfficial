@@ -81,10 +81,8 @@
                     {{ $war->enemy2->name }} <br />
                     {{ $war->enemy3->name }}</td>
                     <td>
-                        @if($war->image)
-                            <img src="{{ Storage::url($war->image) }}" alt="Image de guerre" style="width:100px;"> <!-- Affichez l'image ici -->
-                        @else
-                            Pas d'image
+                        @if ($war->image)
+                        <img src="{{ asset('pubic/images/guild_wars' . $war->image) }}" alt="Image de guerre">
                         @endif
                     </td>
                 <td>{{ $war->date }}</td>

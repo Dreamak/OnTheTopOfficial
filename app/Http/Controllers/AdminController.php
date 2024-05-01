@@ -94,4 +94,19 @@ class AdminController extends Controller
         // Assurez-vous de passer 'nonGuildMembers' à la vue
         return view('admin.manage-guild-members', compact('guild', 'nonGuildMembers'));
     }
+
+    public function destroyMember(Member $member)
+    {
+        // Assurez-vous que les validations nécessaires soient effectuées ici (comme vérifier si l'utilisateur a le droit de supprimer ce membre)
+        $member->delete();
+        return back()->with('success', 'Membre supprimé avec succès.');
+    }
+    public function destroyGuild(Guild $guild)
+    {
+        // Gérer les relations ou les données liées comme expliqué précédemment
+        // Par exemple, supprimer les relations ou les mettre à jour
+        
+        $guild->delete();
+        return back()->with('success', 'Guilde supprimée avec succès.');
+    }
 }

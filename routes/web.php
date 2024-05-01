@@ -42,6 +42,9 @@ Route::middleware(['checkrole:admin,OnTheTop'])->group(function () {
         Route::patch('/admin/members/{member}', [AdminController::class, 'updateMember'])->name('member.update');
         Route::post('/admin/guilds', [AdminController::class, 'storeGuild'])->name('guild.store');
         Route::post('/admin/members', [AdminController::class, 'storeMember'])->name('member.store');
+        Route::delete('/admin/dashboard/members/{member}', [AdminController::class, 'destroyMember'])->name('member.destroy');
+        Route::delete('/admin/dashboard/guilds/{guild}', [AdminController::class, 'destroyGuild'])->name('guild.destroy');
+
 
         Route::get('/admin/guilds/{guild}/manage', [AdminController::class, 'manageGuildMembers'])->name('admin.guild.manage');
         Route::patch('/members/{member}', [MemberController::class, 'update'])->name('members.update');

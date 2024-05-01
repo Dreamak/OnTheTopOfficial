@@ -60,6 +60,11 @@
                             </div>
                         </div>
                     </form>
+                    <form action="{{ route('guild.destroy', $guild->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Supprimer la guilde</button>
+                    </form>
                 </div>
             </div>
         @endforeach
@@ -125,6 +130,12 @@
                                 <button type="submit" class="btn btn-primary">Mettre à jour</button>
                             </div>
                         </div>
+
+                    </form>
+                    <form action="{{ route('member.destroy', $member) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Supprimer le membre</button>
                     </form>
                 </div>
             </div>

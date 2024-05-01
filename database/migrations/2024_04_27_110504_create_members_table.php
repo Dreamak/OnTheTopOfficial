@@ -18,8 +18,8 @@ class CreateMembersTable extends Migration
             $table->bigInteger('powers_id')->unsigned()->nullable();
             $table->timestamps();
 
-            $table->foreign('guilds_id')->references('id')->on('guilds');
-            $table->foreign('powers_id')->references('id')->on('powers');
+            $table->foreign('guilds_id')->references('id')->on('guilds')->onDelete('cascade');
+            $table->foreign('powers_id')->references('id')->on('powers')->onDelete('cascade');
         });
     }
 
