@@ -15,6 +15,7 @@
                 <div class="card-header" onclick="toggleMembers({{ $guild->id }})">
                     <h2 style="cursor:pointer;">{{ $guild->name }}</h2>
                     <p>Server: {{ $guild->server }}</p>
+                    <p>Power: {{ $totalPowerFormatted }}</p>
                 </div>
                 {{-- La liste des membres est masquée par défaut --}}
                 <div class="card-body guild-members" id="guild-{{ $guild->id }}" style="display:none;">
@@ -32,7 +33,7 @@
                         @foreach ($guild->members as $member)
                             <tr>
                                 <th scope="row">{{ $member->ingame_name }}</th>
-                                <td>Power: {{ $member->power->power ?? 'N/A' }}K</tb>
+                                <td>Power: {{ number_format($member->power->power, 0, ',', "'") }} K</tb>
                                 <td><small>Depuis le: {{ $member->power->date ?? 'N/A' }}</small></td>
                             </tr>
                         @endforeach

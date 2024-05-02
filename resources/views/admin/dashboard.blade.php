@@ -4,11 +4,9 @@
 <div class="container">
     <h1>Dashboard Admin</h1>
     <hr>
-    <div class="mt-5">
-        <!-- Navbar -->
-
+    <div class="row justify-content-around mt-5">
         <!-- Content Card -->
-        <div class="card text-center mt-3">
+        <div class="col-6 card text-center">
             <div class="card-header">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
@@ -28,7 +26,7 @@
             <div class="card-body" id="cardContent">
                 <!-- Initial content for Item 1 will be included directly here -->
                 <div id="item1Content">
-                    <section class="mb-4 col-8">
+                    <section class="mb-4 col-12">
                         <h2 class="mb-3">Guilds</h2>
                         <button type="button" class="btn btn-primary mt-2 mb-4" data-bs-toggle="modal" data-bs-target="#addGuildModal">
                             Add a guild
@@ -83,7 +81,7 @@
                                             </div>
                                             <div class="col form-floating">
                                                 <input type="text" class="form-control" name="server" placeholder="Server" value="{{ $guild->server }}">
-                                                <label class="form-label">Server:</label>
+                                                <label class="form-label">Server</label>
                                             </div>
                                             <div class="col-auto">
                                                 <button type="submit" class="btn btn-primary">Update</button>
@@ -97,7 +95,7 @@
                     </section>
                 </div>
                 <div id="item2Content" style="display: none;">
-                    <section class="mb-4 col-8">
+                    <section class="mb-4 col-12">
                         <h2 class="mb-3">Members</h2>
                         <button type="button" class="btn btn-primary mt-2 mb-4" data-bs-toggle="modal" data-bs-target="#addMemberModal">
                             Add a member

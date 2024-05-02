@@ -78,8 +78,8 @@
                                 <h2>Informations de la Guilde</h2>
                             </div>
                             <div class="card-body">
-                                <p><strong>Nom de la guilde :</strong> {{ $guild->name }}</p>
-                                <p><strong>Puissance totale :</strong> {{ $guild->power }}</p>
+                                <p><strong>Nom de la guilde : </strong>{{ $guild->name }}</p>
+                                <p><strong>Puissance totale : </strong>{{ $totalPowerFormatted }}</p>
                                 <p><strong>Membres :</strong> {{ $guild->members->count() }}</p>
                                 <h4>Top 5 des membres par Power</h3>
                                 <table class="table">
@@ -93,7 +93,7 @@
                                     @foreach ($topMembers as $member)
                                         <tr>
                                             <th scope="row">{{ $member->ingame_name }}</th>
-                                            <td>{{ $member->power }}</td>
+                                            <td>{{ number_format($member->power, 0, ',', "'") }} K</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -109,6 +109,13 @@
                         <h4>Événements à venir</h4>
                     </div>
                     <div class="card-body">
+                        <p class="card-text placeholder-glow">
+                            <span class="placeholder col-7"></span>
+                            <span class="placeholder col-5"></span>
+                            <span class="placeholder col-4"></span>
+                            <span class="placeholder col-6"></span>
+                            <span class="placeholder col-8"></span>
+                          </p>
                         <ul>
                             @foreach ($events as $event)
                                 <li>
