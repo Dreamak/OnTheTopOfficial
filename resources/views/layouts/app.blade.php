@@ -32,9 +32,6 @@
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.users') }}">Manage Users</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.guildwars.index') }}">Manage GDC</a>
                             </li>
                             <li class="nav-item">

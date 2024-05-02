@@ -45,6 +45,8 @@ Route::middleware(['checkrole:admin,OnTheTop'])->group(function () {
         Route::post('/admin/members', [AdminController::class, 'storeMember'])->name('member.store');
         Route::delete('/admin/dashboard/members/{member}', [AdminController::class, 'destroyMember'])->name('member.destroy');
         Route::delete('/admin/dashboard/guilds/{guild}', [AdminController::class, 'destroyGuild'])->name('guild.destroy');
+        Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+        Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 
         Route::get('/admin/guilds/{guild}/manage', [AdminController::class, 'manageGuildMembers'])->name('admin.guild.manage');
@@ -54,7 +56,6 @@ Route::middleware(['checkrole:admin,OnTheTop'])->group(function () {
         Route::patch('/admin/members/{member}/remove-from-guild', [MemberController::class, 'removeFromGuild'])->name('members.remove-from-guild');
 
         Route::resource('admin/users', UserController::class)->middleware('auth', 'role:admin');
-        Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users');
 
         Route::get('/admin/guildwars', [GuildWarController::class, 'index'])->name('admin.guildwars.index');
         Route::get('/admin/guildwars/create', [GuildWarController::class, 'create'])->name('admin.guildwars.create');

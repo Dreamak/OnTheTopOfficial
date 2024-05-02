@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guild;
-use App\Models\Member;
+use App\Models\{Guild, Member, Power, User, Role};
 use Illuminate\Http\Request;
-use App\Models\Power;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -14,7 +13,9 @@ class AdminController extends Controller
     {
         $guilds = Guild::all();
         $members = Member::all();
-        return view('admin.dashboard', compact('guilds', 'members'));
+        $users = User::with('role', 'member')->get();
+        $roles = Role::all();
+        return view('admin.dashboard', compact('guilds', 'members', 'users', 'roles'));
     }
 
     public function updateGuild(Request $request, Guild $guild)
@@ -108,5 +109,53 @@ class AdminController extends Controller
         
         $guild->delete();
         return back()->with('success', 'Guilde supprimée avec succès.');
+    }
+
+
+
+
+    public function storeUser(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:users',
+            'username' => 'required',
+            'roles_id' => 'required|exists:roles,id',
+            'password' => 'required',
+        ]);
+
+        $user = User::create([
+            'email' => $validatedData['email'],
+            'username' => $validatedData['username'],
+            'roles_id' => $validatedData['roles_id'],
+            'password' => Hash::make($validatedData['password']),
+        ]);
+
+        return back()->with('success', 'Utilisateur créé avec succès.');
+    }
+
+    public function updateUser(Request $request, User $user)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:users,email,'.$user->id,
+            'username' => 'required',
+            'roles_id' => 'required|exists:roles,id',
+            'password' => 'nullable|min:6',
+        ]);
+
+        $user->update($validatedData);
+
+        if ($request->filled('password')) {
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        return back()->with('success', 'Utilisateur mis à jour avec succès.');
+    }
+
+    public function destroyUser(User $user)
+    {
+        $user->delete();
+        return back()->with('success', 'Utilisateur supprimé avec succès.');
     }
 }
