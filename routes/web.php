@@ -41,12 +41,14 @@ Route::middleware(['checkrole:admin,OnTheTop'])->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
         Route::patch('/admin/guilds/{guild}', [AdminController::class, 'updateGuild'])->name('guild.update');
         Route::patch('/admin/members/{member}', [AdminController::class, 'updateMember'])->name('member.update');
+        Route::patch('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('user.update');
         Route::post('/admin/guilds', [AdminController::class, 'storeGuild'])->name('guild.store');
         Route::post('/admin/members', [AdminController::class, 'storeMember'])->name('member.store');
+        Route::post('/admin/users', [AdminController::class, 'storeUser'])->name('user.store');
         Route::delete('/admin/dashboard/members/{member}', [AdminController::class, 'destroyMember'])->name('member.destroy');
         Route::delete('/admin/dashboard/guilds/{guild}', [AdminController::class, 'destroyGuild'])->name('guild.destroy');
+        Route::delete('/admin/dashboard/users/{user}', [AdminController::class, 'destroyUser'])->name('user.destroy');
         Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-        Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 
         Route::get('/admin/guilds/{guild}/manage', [AdminController::class, 'manageGuildMembers'])->name('admin.guild.manage');

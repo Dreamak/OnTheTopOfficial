@@ -45,7 +45,7 @@ class UserController extends Controller
             'passwords_id' => $password->id,
             // 'members_id' peut être défini ici si nécessaire, ou laissé à null pour être défini plus tard.
         ]);
-        return redirect()->route('admin.users')->with('success', 'Utilisateur créé avec succès.');
+        return back()->with('success', 'Utilisateur créé avec succès.');
     }
 
     public function edit(User $user)
@@ -82,12 +82,12 @@ class UserController extends Controller
             }
         }
 
-        return redirect()->route('admin.users')->with('success', 'Utilisateur mis à jour avec succès.');
+        return back()->with('success', 'Utilisateur créé avec succès.');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users')->with('success', 'Utilisateur supprimé avec succès.');
+        return back()->with('success', 'Utilisateur supprimé avec succès.');
     }
 }
